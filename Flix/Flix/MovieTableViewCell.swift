@@ -65,7 +65,6 @@ class MovieTableViewCell: UITableViewCell {
         contentView.addSubview(imageview)
         imageview.contentMode = .scaleToFill
         imageview.translatesAutoresizingMaskIntoConstraints = false
-        imageview.backgroundColor = .blue
         imageview.image = UIImage(named: "imag")
         
 //        contentView.backgroundColor = .red
@@ -75,8 +74,8 @@ class MovieTableViewCell: UITableViewCell {
 //
         contentView.addSubview(descriptionLbl)
         descriptionLbl.translatesAutoresizingMaskIntoConstraints = false
-//        
-        
+////
+//
     }
     
     override func layoutSubviews() {
@@ -91,36 +90,37 @@ class MovieTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             
             imageview.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            imageview.heightAnchor.constraint(lessThanOrEqualToConstant: 135),
+            imageview.heightAnchor.constraint(equalToConstant: 135),
             imageview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             imageview.widthAnchor.constraint(equalToConstant: 100),
             
-//            imageview.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor, constant: -10)
-            
+
+
         ])
         
-        
+      
+
         NSLayoutConstraint.activate([
-            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: imageview.bottomAnchor, constant: 10)
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: imageview.bottomAnchor, constant: -10)
         ])
-        
+
         // setting constraints for the titleLbl
         NSLayoutConstraint.activate([
             titleLbl.leadingAnchor.constraint(equalTo: imageview.trailingAnchor, constant: 10),
             titleLbl.topAnchor.constraint(equalTo: imageview.topAnchor, constant: 0),
             titleLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
-//
+////
         NSLayoutConstraint.activate([
             descriptionLbl.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 0),
             descriptionLbl.leadingAnchor.constraint(equalTo: titleLbl.leadingAnchor, constant: 0),
             descriptionLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
         ])
-        
+////
         NSLayoutConstraint.activate([
             contentView.bottomAnchor.constraint(greaterThanOrEqualTo: descriptionLbl.bottomAnchor, constant: 10)
         ])
-        
+
         
     }
     

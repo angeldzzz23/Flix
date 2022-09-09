@@ -42,8 +42,12 @@ final class AutoSizingTableView: UITableView {
 
 class ViewController: UIViewController {
 
-    let searchView = UISearchBar()
+//    let searchView = UISearchBar()
 
+    
+   
+
+    
     
     let tableview: AutoSizingTableView = {
         let tableview = AutoSizingTableView()
@@ -52,13 +56,15 @@ class ViewController: UIViewController {
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
     }()
-    
+    let searchController = UISearchController(searchResultsController: nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpViews()
         setUpLayout()
- 
+        navigationItem.searchController = searchController
+
 //        tableview.estimatedRowHeight = 180
 //        tableview.estimatedRowHeight = UITableView.automaticDimension
         
@@ -72,8 +78,8 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         title = "Now Playing"
         
-        searchView.delegate = self
-        view.addSubview(searchView)
+//        searchView.delegate = self
+//        view.addSubview(searchView)
         
        
         
@@ -88,10 +94,10 @@ class ViewController: UIViewController {
     private func setUpLayout() {
         
         // setting up the contrains for the search view
-        searchView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
-        
+//        searchView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
+//
         NSLayoutConstraint.activate([
-            tableview.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 0),
+            tableview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             tableview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
@@ -101,16 +107,16 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-      
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-      
-    }
-}
+//extension ViewController: UISearchBarDelegate {
+//
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//
+//    }
+//
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//
+//    }
+//}
 
 // conformance to datasource
 extension ViewController:UITableViewDataSource {
@@ -131,8 +137,8 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-    
+
+//
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
