@@ -7,14 +7,46 @@
 
 import UIKit
 
+final class AutoSizingTableView: UITableView {
+
+    override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: style)
+        setContentCompressionResistancePriority(.required, for: .vertical)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setContentCompressionResistancePriority(.required, for: .vertical)
+    }
+
+    override var contentSize: CGSize {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
+
+    override func reloadData() {
+        super.reloadData()
+        invalidateIntrinsicContentSize()
+    }
+
+    override var intrinsicContentSize: CGSize {
+        setNeedsLayout()
+        layoutIfNeeded()
+        return contentSize
+    }
+}
+
+
+
 
 class ViewController: UIViewController {
 
     let searchView = UISearchBar()
 
     
-    let tableview: UITableView = {
-        let tableview = UITableView()
+    let tableview: AutoSizingTableView = {
+        let tableview = AutoSizingTableView()
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableview.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
         tableview.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +59,10 @@ class ViewController: UIViewController {
         setUpViews()
         setUpLayout()
  
-    
+//        tableview.estimatedRowHeight = 180
+//        tableview.estimatedRowHeight = UITableView.automaticDimension
+        
+        
     }
     
     // MARK: layout
@@ -39,11 +74,11 @@ class ViewController: UIViewController {
         
         searchView.delegate = self
         view.addSubview(searchView)
-    
+        
+       
         
         view.addSubview(tableview)
-        setUpLayout()
-        
+
         tableview.dataSource = self
         tableview.delegate = self
         
@@ -94,7 +129,12 @@ extension ViewController:UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return UITableView.automaticDimension
+    }
+    
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 

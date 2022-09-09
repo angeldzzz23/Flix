@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class MovieTableViewCell: UITableViewCell {
     
     // MARK: properties
@@ -26,6 +28,10 @@ class MovieTableViewCell: UITableViewCell {
     
     private let descriptionLbl: UILabel = {
         let lbl = UILabel()
+        lbl.numberOfLines = 0
+        lbl.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        lbl.text = "The Red Ribbon Army, an evil organization that was once destroyed by Goku in the past, has been reformed by a group of people who have created new and mightier Androids, Gamma 1 and Gamma 2, and seek vengeance against Goku and his family."
+        lbl.textColor = .systemGray
         return lbl
     }()
 
@@ -48,7 +54,7 @@ class MovieTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = .yellow
+        
         setUp()
         setAutoLayout()
             
@@ -57,22 +63,45 @@ class MovieTableViewCell: UITableViewCell {
     
     private func setUp() {
         contentView.addSubview(imageview)
+        imageview.contentMode = .scaleToFill
         imageview.translatesAutoresizingMaskIntoConstraints = false
         imageview.backgroundColor = .blue
-        contentView.backgroundColor = .red
+        imageview.image = UIImage(named: "imag")
+        
+//        contentView.backgroundColor = .red
         
         contentView.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
+//
+        contentView.addSubview(descriptionLbl)
+        descriptionLbl.translatesAutoresizingMaskIntoConstraints = false
+//        
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
     }
     
     private func setAutoLayout() {
         // setting constraints for the image view
+        
+        
         NSLayoutConstraint.activate([
+            
             imageview.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            imageview.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            imageview.heightAnchor.constraint(lessThanOrEqualToConstant: 135),
             imageview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            imageview.widthAnchor.constraint(equalToConstant: 90)
+            imageview.widthAnchor.constraint(equalToConstant: 100),
+            
+//            imageview.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor, constant: -10)
+            
+        ])
+        
+        
+        NSLayoutConstraint.activate([
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: imageview.bottomAnchor, constant: 10)
         ])
         
         // setting constraints for the titleLbl
@@ -80,6 +109,16 @@ class MovieTableViewCell: UITableViewCell {
             titleLbl.leadingAnchor.constraint(equalTo: imageview.trailingAnchor, constant: 10),
             titleLbl.topAnchor.constraint(equalTo: imageview.topAnchor, constant: 0),
             titleLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+        ])
+//
+        NSLayoutConstraint.activate([
+            descriptionLbl.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 0),
+            descriptionLbl.leadingAnchor.constraint(equalTo: titleLbl.leadingAnchor, constant: 0),
+            descriptionLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+        ])
+        
+        NSLayoutConstraint.activate([
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: descriptionLbl.bottomAnchor, constant: 10)
         ])
         
         
