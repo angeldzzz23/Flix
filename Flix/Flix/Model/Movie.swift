@@ -15,8 +15,11 @@ import Foundation
 
 import Foundation
 
+// these are the objects that are used to download the movies
+
+
 // MARK: - Welcome
-struct Welcome: Codable {
+struct Response: Codable {
     let dates: Dates
     let page: Int
     public let results: [Result]

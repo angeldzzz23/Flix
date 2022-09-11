@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         setUpLayout()
         navigationItem.searchController = searchController
         
-        MovieController.shared.fetchCategories { result in
+        MovieController.shared.fetchMovies { result in
             switch result {
             case .success(let moviesss):
                 self.updateUI(with: moviesss)
@@ -118,7 +118,6 @@ extension ViewController:UITableViewDataSource {
         configure(cell, forItemAt: indexPath)
         return cell
     }
-    
     
 }
 
