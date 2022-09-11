@@ -162,10 +162,10 @@ extension ViewController:UITableViewDataSource {
         let cell = tableview.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as! MovieTableViewCell
         let movie = movies[indexPath.row]
         let baseUrl = "https://image.tmdb.org/t/p/w185"
-        
+        let title = movie["title"] as! String
+        let synopsis = movie["overview"] as! String
         let posterPath = movie["poster_path"] as! String
         let posterUrl = URL(string: baseUrl + posterPath)!
-        
         
         
         fetchImage(url: posterUrl) { image in
@@ -175,9 +175,10 @@ extension ViewController:UITableViewDataSource {
             
         }
         
+        cell.configuretitle(text: title)
+        cell.configureSypnosis(text: synopsis)
+    
 
-        
-        
         
         return cell
     }

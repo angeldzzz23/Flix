@@ -43,6 +43,10 @@ class MovieTableViewCell: UITableViewCell {
         self.titleLbl.text = text
     }
     
+    func configureSypnosis(text: String){
+        self.descriptionLbl.text = text
+    }
+    
     
     
     override func awakeFromNib() {
