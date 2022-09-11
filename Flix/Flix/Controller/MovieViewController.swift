@@ -8,8 +8,9 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class MovieViewController: UIViewController {
     
+    /// MARK: Properies
     private let tableview: UITableView = {
         let tableview = UITableView()
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -41,6 +42,11 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
+    // MARK: layout
+    
+    /// displays an alert with the specified error (API doesnt work for some reason)
     private func displayError(_ error: Error, title: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
@@ -49,7 +55,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    /// updares the tableview
     private func updateUI(with movieItems: [Result]) {
         DispatchQueue.main.async {
             self.movies = movieItems
@@ -57,7 +63,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: layout
+ 
     /// sets up the views
    private func setUpViews() {
         view.backgroundColor = .white
@@ -65,7 +71,6 @@ class ViewController: UIViewController {
         view.addSubview(tableview)
         tableview.dataSource = self
         tableview.delegate = self
-        
     }
     
 
@@ -74,7 +79,6 @@ class ViewController: UIViewController {
     
     /// sets up the auto layout
     private func setUpLayout() {
-        
         NSLayoutConstraint.activate([
             tableview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             tableview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
@@ -84,6 +88,7 @@ class ViewController: UIViewController {
     }
     
     
+    /// in  charge of configuring the specified cell at indexpath
     func configure(_ cell: MovieTableViewCell, forItemAt indexPath: IndexPath) {
         let movie = movies[indexPath.row]
         let baseUrl = "https://image.tmdb.org/t/p/w185"
@@ -92,13 +97,14 @@ class ViewController: UIViewController {
         let posterPath = movie.posterPath
         let posterUrl = URL(string: baseUrl + posterPath)!
         
+        // download image
         MovieController.shared.fetchImage(url: posterUrl) { image in
             DispatchQueue.main.async {
                 cell.configureImage(image: image ?? UIImage(named: "img")!)
             }
         }
       
-        
+        // setting the cell with the properties
         cell.configuretitle(text: title)
         cell.configureSypnosis(text: synopsis)
     }
@@ -108,7 +114,8 @@ class ViewController: UIViewController {
 
 
 // conformance to datasource
-extension ViewController:UITableViewDataSource {
+extension MovieViewController:UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -121,7 +128,7 @@ extension ViewController:UITableViewDataSource {
     
 }
 
-extension ViewController: UITableViewDelegate {
+extension MovieViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

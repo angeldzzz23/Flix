@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C08740928C835070002FB95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08740828C835070002FB95 /* AppDelegate.swift */; };
 		1C08740B28C835070002FB95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08740A28C835070002FB95 /* SceneDelegate.swift */; };
-		1C08740D28C835070002FB95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08740C28C835070002FB95 /* ViewController.swift */; };
+		1C08740D28C835070002FB95 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08740C28C835070002FB95 /* MovieViewController.swift */; };
 		1C08741228C835080002FB95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C08741128C835080002FB95 /* Assets.xcassets */; };
 		1C08741528C835080002FB95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C08741328C835080002FB95 /* LaunchScreen.storyboard */; };
 		1C08741E28C83A050002FB95 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08741D28C83A050002FB95 /* Extension+UIView.swift */; };
@@ -22,7 +22,7 @@
 		1C08740528C835070002FB95 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C08740828C835070002FB95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C08740A28C835070002FB95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1C08740C28C835070002FB95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1C08740C28C835070002FB95 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		1C08741128C835080002FB95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C08741428C835080002FB95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C08741628C835080002FB95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		1CF4835E28CD750E0045D514 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1C08740C28C835070002FB95 /* ViewController.swift */,
+				1C08740C28C835070002FB95 /* MovieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,7 +181,7 @@
 				1CF4836028CD77960045D514 /* Movie.swift in Sources */,
 				1CF4835B28CD75010045D514 /* MovieController.swift in Sources */,
 				1C98C1E528CAF1C100C89754 /* MovieTableViewCell.swift in Sources */,
-				1C08740D28C835070002FB95 /* ViewController.swift in Sources */,
+				1C08740D28C835070002FB95 /* MovieViewController.swift in Sources */,
 				1C08740928C835070002FB95 /* AppDelegate.swift in Sources */,
 				1C08741E28C83A050002FB95 /* Extension+UIView.swift in Sources */,
 				1C08740B28C835070002FB95 /* SceneDelegate.swift in Sources */,
