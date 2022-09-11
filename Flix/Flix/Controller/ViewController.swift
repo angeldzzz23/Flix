@@ -14,18 +14,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let tableview: UITableView = {
+    private let tableview: UITableView = {
         let tableview = UITableView()
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableview.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
     }()
-    let searchController = UISearchController(searchResultsController: nil)
+    private  let searchController = UISearchController(searchResultsController: nil)
     
-    var movies: [Result] = [Result]()
+    private var movies: [Result] = [Result]()
 
-    let Menucontroller = MenuController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +34,7 @@ class ViewController: UIViewController {
         navigationItem.searchController = searchController
         
         
-        MenuController.shared.fetchCategories { result in
+        MovieController.shared.fetchCategories { result in
             switch result {
             case .success(let moviesss):
                 self.updateUI(with: moviesss)
@@ -56,7 +55,6 @@ class ViewController: UIViewController {
     }
     
     // MARK: layout
-    
     /// sets up the views
    private func setUpViews() {
         view.backgroundColor = .white
@@ -67,18 +65,7 @@ class ViewController: UIViewController {
         
     }
     
-    
-    func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let data = data,
-                let image = UIImage(data: data) {
-                completion(image)
-            } else {
-                completion(nil)
-            }
-        }
-        task.resume()
-    }
+
     
     
     
@@ -102,11 +89,12 @@ class ViewController: UIViewController {
         let posterPath = movie.posterPath
         let posterUrl = URL(string: baseUrl + posterPath)!
         
-        fetchImage(url: posterUrl) { image in
+        MovieController.shared.fetchImage(url: posterUrl) { image in
             DispatchQueue.main.async {
                 cell.configureImage(image: image ?? UIImage(named: "img")!)
             }
         }
+      
         
         cell.configuretitle(text: title)
         cell.configureSypnosis(text: synopsis)
