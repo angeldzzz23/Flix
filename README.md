@@ -30,8 +30,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+![video2](https://user-images.githubusercontent.com/29695936/189511183-f22a1d47-386f-4f5f-80bf-7fadb2994e7b.gif)
 
-![video2](https://user-images.githubusercontent.com/29695936/185813380-10853fd0-02b7-4b96-b4d7-de53e3212903.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
