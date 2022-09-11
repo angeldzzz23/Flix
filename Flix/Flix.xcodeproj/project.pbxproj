@@ -15,6 +15,7 @@
 		1C08741E28C83A050002FB95 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08741D28C83A050002FB95 /* Extension+UIView.swift */; };
 		1C98C1E528CAF1C100C89754 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C1E428CAF1C100C89754 /* MovieTableViewCell.swift */; };
 		1CF4835B28CD75010045D514 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4835A28CD75010045D514 /* MovieController.swift */; };
+		1CF4836028CD77960045D514 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4835F28CD77960045D514 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1C08741D28C83A050002FB95 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		1C98C1E428CAF1C100C89754 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		1CF4835A28CD75010045D514 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
+		1CF4835F28CD77960045D514 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1CF4835A28CD75010045D514 /* MovieController.swift */,
+				1CF4835F28CD77960045D514 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF4836028CD77960045D514 /* Movie.swift in Sources */,
 				1CF4835B28CD75010045D514 /* MovieController.swift in Sources */,
 				1C98C1E528CAF1C100C89754 /* MovieTableViewCell.swift in Sources */,
 				1C08740D28C835070002FB95 /* ViewController.swift in Sources */,
