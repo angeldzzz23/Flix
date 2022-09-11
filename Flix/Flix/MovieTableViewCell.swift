@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class MovieTableViewCell: UITableViewCell {
     
     // MARK: properties
@@ -17,9 +15,10 @@ class MovieTableViewCell: UITableViewCell {
     static let identifier = "MovieTableViewCell"
     private let imageview = UIImageView() // width = 89
     
+    
     private let titleLbl: UILabel = {
         let titleLbl = UILabel()
-        titleLbl.text = "Luca"
+        titleLbl.text = "Cool"
         titleLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return titleLbl
     }()
@@ -65,7 +64,8 @@ class MovieTableViewCell: UITableViewCell {
         contentView.addSubview(imageview)
         imageview.contentMode = .scaleToFill
         imageview.translatesAutoresizingMaskIntoConstraints = false
-        imageview.image = UIImage(named: "imag")
+//        imageview.image = UIImage(named: "imag")
+        imageview.backgroundColor = .yellow
         
 //        contentView.backgroundColor = .red
         

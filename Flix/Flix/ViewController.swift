@@ -45,9 +45,7 @@ class ViewController: UIViewController {
 //    let searchView = UISearchBar()
 
     
-   
 
-    
     
     let tableview: AutoSizingTableView = {
         let tableview = AutoSizingTableView()
@@ -57,6 +55,8 @@ class ViewController: UIViewController {
         return tableview
     }()
     let searchController = UISearchController(searchResultsController: nil)
+    
+    var movies = [[String: Any]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +67,25 @@ class ViewController: UIViewController {
 
 //        tableview.estimatedRowHeight = 180
 //        tableview.estimatedRowHeight = UITableView.automaticDimension
+        
+        
+        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+              let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+              let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+              let task = session.dataTask(with: request) { data, _, error in
+                  // This will run when the network request returns
+                  if let error = error {
+                      print(error)
+                  } else if let data = data {
+                      let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                      self.movies = dataDictionary["results"] as! [[String: Any]]
+                      
+                      
+                      // Call tableView functions again
+                      self.tableview.reloadData()
+                  }
+              }
+              task.resume()
         
         
     }
@@ -89,6 +108,21 @@ class ViewController: UIViewController {
         tableview.delegate = self
         
     }
+    
+    
+    func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data,
+                let image = UIImage(data: data) {
+                completion(image)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+    
+    
     
     /// sets up the auto layout
     private func setUpLayout() {
@@ -121,11 +155,29 @@ class ViewController: UIViewController {
 // conformance to datasource
 extension ViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as! MovieTableViewCell
+        let movie = movies[indexPath.row]
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        
+        let posterPath = movie["poster_path"] as! String
+        let posterUrl = URL(string: baseUrl + posterPath)!
+        
+        
+        
+        fetchImage(url: posterUrl) { image in
+            DispatchQueue.main.async {
+                cell.configureImage(image: image ?? UIImage(named: "img")!)
+            }
+            
+        }
+        
+
+        
+        
         
         return cell
     }
