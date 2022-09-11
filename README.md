@@ -25,7 +25,7 @@ The following **required** functionality is complete:
 The following **additional** features are implemented:
 
 - [x] User can view the app on various device sizes and orientations.
-- [x]Run your app on a real device.
+- [x] Run your app on a real device.
 
 ## Video Walkthrough
 
