@@ -8,10 +8,6 @@
 import UIKit
 
 
-
-
-
-
 class ViewController: UIViewController {
     
     private let tableview: UITableView = {
@@ -33,17 +29,24 @@ class ViewController: UIViewController {
         setUpLayout()
         navigationItem.searchController = searchController
         
-        
         MovieController.shared.fetchCategories { result in
             switch result {
             case .success(let moviesss):
                 self.updateUI(with: moviesss)
             case .failure(let error):
                 print("there was an error")
+                self.displayError(error, title: "Failed to fetch movies")
                 
             }
         }
-        
+    }
+    
+    private func displayError(_ error: Error, title: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
