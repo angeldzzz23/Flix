@@ -26,6 +26,8 @@ The following **additional** features are implemented:
 
 - [x] User can view the app on various device sizes and orientations.
 - [x] Run your app on a real device.
+- [x] All programmatic UI
+- [x] implemented MovieController
 
 ## Video Walkthrough
 
