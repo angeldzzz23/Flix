@@ -19,7 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let root = UINavigationController(rootViewController: MovieViewController())
+            let tabBar = TabBarVienctronller()
+            let root = tabBar
+          
+            
             window.rootViewController = root
             
             
