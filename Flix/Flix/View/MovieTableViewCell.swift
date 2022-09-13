@@ -76,7 +76,7 @@ class MovieTableViewCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: imageview.bottomAnchor, constant: -10)
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: imageview.bottomAnchor, constant: 10)
         ])
 
         // setting constraints for the titleLbl
