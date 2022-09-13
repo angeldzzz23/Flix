@@ -17,14 +17,14 @@ class MovieTableViewCell: UITableViewCell {
     private let titleLbl: UILabel = {
         let titleLbl = UILabel()
         titleLbl.text = "Cool"
-        titleLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        titleLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         return titleLbl
     }()
     
     private let descriptionLbl: UILabel = {
         let lbl = UILabel()
         lbl.numberOfLines = 0
-        lbl.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        lbl.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         lbl.text = "The Red Ribbon Army, an evil organization that was once destroyed by Goku in the past, has been reformed by a group of people who have created new and mightier Androids, Gamma 1 and Gamma 2, and seek vengeance against Goku and his family."
         lbl.textColor = .systemGray
         return lbl
@@ -76,7 +76,7 @@ class MovieTableViewCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: imageview.bottomAnchor, constant: -10)
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: imageview.bottomAnchor, constant: 10)
         ])
 
         // setting constraints for the titleLbl
