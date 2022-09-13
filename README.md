@@ -1,6 +1,6 @@
 # *FLIX*
 
-**FLIX** is an application for ios.
+**FLIX** is an application for that displays the current movies in theaters ios.
 
 
 ## User Stories
