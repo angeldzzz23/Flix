@@ -17,6 +17,9 @@ class MovieController {
 
     private let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
     
+    
+
+    
     /// Gets the movies from the url
     func fetchMovies(completion: @escaping (Swift.Result<[Result], Error>) -> Void)
     {
@@ -38,6 +41,10 @@ class MovieController {
         task.resume()
         
     }
+    
+    
+    
+    
     
     /// dowloads image given a url 
     func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {

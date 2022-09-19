@@ -18,6 +18,7 @@ class MovieViewController: UIViewController {
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
     }()
+    
     private  let searchController = UISearchController(searchResultsController: nil)
     
     private var movies: [Result] = [Result]()
@@ -127,6 +128,8 @@ extension MovieViewController:UITableViewDataSource {
         return cell
     }
     
+    
+    
 }
 
 extension MovieViewController: UITableViewDelegate {
@@ -134,9 +137,15 @@ extension MovieViewController: UITableViewDelegate {
         return UITableView.automaticDimension
     }
 
+
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selecting row at index path")
+        let movie = movies[indexPath.row]
+        navigationController?.showDetailViewController(MovideDetailViewController(result: movie), sender: true)
     }
 }
 
