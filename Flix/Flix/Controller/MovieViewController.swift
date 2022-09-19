@@ -23,6 +23,7 @@ class MovieViewController: UIViewController {
     
     private var movies: [Result] = [Result]()
 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,7 +146,26 @@ extension MovieViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selecting row at index path")
         let movie = movies[indexPath.row]
-        navigationController?.showDetailViewController(MovideDetailViewController(result: movie), sender: true)
+//        navigationController?.showDetailViewController(MovideDetailViewController(result: movie), sender: true)
+        
+    
+        let vc = MovideDetailViewController(result: movie)
+        let  n = UINavigationController(rootViewController: vc)
+       
+        
+        navigationController?.present(n, animated: true)
+                                            
     }
+    
+    func getTopMostViewController() -> UIViewController? {
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+
+        return topMostViewController
+    }
+    
 }
 

@@ -114,8 +114,8 @@ class MovideDetailViewController: UIViewController {
         view.addSubview(movieName)
         view.addSubview(movieYear)
         view.addSubview(movieDescription)
+        view.backgroundColor = .black
         
-        self.view.backgroundColor = .black
         
     }
     
