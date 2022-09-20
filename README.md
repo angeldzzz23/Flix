@@ -20,6 +20,12 @@ The following **required** functionality is complete:
 * [x] User sees an app icon on the home screen and a styled launch screen.
 * [x] User can view the movie posters in each row.
 * [x] User can view and scroll through a list of movies now playing in theaters.
+* [x] User can view and scroll through a list of movies now playing in theaters.
+* [x] User can see more details by tapping a tableview cell
+* [x] User can see superheros using a collectionview
+* [x] user can navigate using a tab bar
+
+
 
 
 The following **additional** features are implemented:
@@ -33,7 +39,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![video2](https://user-images.githubusercontent.com/29695936/189939757-5d44f9a5-5782-41ce-84c4-27a0b6cf0ac1.gif)
+![video2](https://user-images.githubusercontent.com/29695936/191158795-6ce199c8-2b2e-446c-91ed-03816f80eae2.gif)
+
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
