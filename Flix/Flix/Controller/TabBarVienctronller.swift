@@ -18,7 +18,7 @@ class TabBarVienctronller: UITabBarController {
         
         
         
-        let vc2 = UINavigationController(rootViewController: UIViewController())
+        let vc2 = UINavigationController(rootViewController: SuperHeroesViewController())
         vc2.title = "aa"
 //        vc2.view.backgroundColor = .yellow
         

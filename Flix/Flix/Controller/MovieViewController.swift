@@ -28,7 +28,7 @@ class MovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = .white
-        // Do any additional setup after loading the view.
+        
         setUpViews()
         setUpLayout()
         navigationItem.searchController = searchController

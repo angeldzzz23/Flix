@@ -18,6 +18,7 @@
 		1C3A075528D0CFEE00AD5463 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3A075428D0CFEE00AD5463 /* SettingsViewController.swift */; };
 		1C98C1E528CAF1C100C89754 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C1E428CAF1C100C89754 /* MovieTableViewCell.swift */; };
 		1CB90AE628D91930006D0158 /* SuperHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB90AE528D91930006D0158 /* SuperHeroesViewController.swift */; };
+		1CB90AE828D953C4006D0158 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB90AE728D953C4006D0158 /* MovieCollectionViewCell.swift */; };
 		1CF4835B28CD75010045D514 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4835A28CD75010045D514 /* MovieController.swift */; };
 		1CF4836028CD77960045D514 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4835F28CD77960045D514 /* Movie.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		1C3A075428D0CFEE00AD5463 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1C98C1E428CAF1C100C89754 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		1CB90AE528D91930006D0158 /* SuperHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroesViewController.swift; sourceTree = "<group>"; };
+		1CB90AE728D953C4006D0158 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		1CF4835A28CD75010045D514 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		1CF4835F28CD77960045D514 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				1C98C1E428CAF1C100C89754 /* MovieTableViewCell.swift */,
+				1CB90AE728D953C4006D0158 /* MovieCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				1CF4836028CD77960045D514 /* Movie.swift in Sources */,
 				1CF4835B28CD75010045D514 /* MovieController.swift in Sources */,
 				1CB90AE628D91930006D0158 /* SuperHeroesViewController.swift in Sources */,
+				1CB90AE828D953C4006D0158 /* MovieCollectionViewCell.swift in Sources */,
 				1C254B1128D546E800E74B96 /* MovideDetailViewController.swift in Sources */,
 				1C98C1E528CAF1C100C89754 /* MovieTableViewCell.swift in Sources */,
 				1C08740D28C835070002FB95 /* MovieViewController.swift in Sources */,
