@@ -13,7 +13,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     let movieImageView: UIImageView = {
         let imgviww = UIImageView()
-        imgviww.backgroundColor = .green
+        imgviww.contentMode = .scaleToFill
         
         imgviww.translatesAutoresizingMaskIntoConstraints = false
 

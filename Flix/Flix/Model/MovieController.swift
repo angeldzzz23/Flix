@@ -42,18 +42,24 @@ class MovieController {
         
     }
     
-    func fetchSuperHeroMovies(completion: @escaping (Swift.Result<[Result], Error>) -> Void)
+    func fetchSuperHeroMovies(completion: @escaping (Swift.Result<[SuperHeroResult], Error>) -> Void)
     {
-       
-        let task = URLSession.shared.dataTask(with: superHeroURl) { data, response, error in
+       let uu = URL(string: "https://api.themoviedb.org/3/movie/634649/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+        
+        let task = URLSession.shared.dataTask(with: uu) { data, response, error in
+           
+            
             if let data = data {
                 do {
                     let jsonDecoder = JSONDecoder()
-                    let moviesResponse = try jsonDecoder.decode(Response.self, from: data)
+                    let moviesResponse = try jsonDecoder.decode(SuperHeroResponse.self, from: data)
+                    
                     completion(.success(moviesResponse.results))
                 }
                 catch {
+                    
                     completion(.failure(error))
+                    
                 }
             } else {
                 print("no data")

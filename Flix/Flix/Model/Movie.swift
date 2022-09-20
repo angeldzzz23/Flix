@@ -74,3 +74,36 @@ enum OriginalLanguage: String, Codable {
     case es = "es"
     case ja = "ja"
 }
+
+
+struct SuperHeroResponse: Codable {
+    let page: Int
+    let results: [SuperHeroResult]
+    let totalPages, totalResults: Int
+
+    enum CodingKeys: String, CodingKey {
+        case page, results
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+}
+
+
+
+// MARK: - Result
+struct SuperHeroResult: Codable {
+
+    let posterPath, releaseDate, title: String
+
+    
+    enum CodingKeys: String, CodingKey {
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title
+        
+        
+    }
+
+
+}
+

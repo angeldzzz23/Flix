@@ -11,12 +11,12 @@ import UIKit
 class SuperHeroesViewController: UIViewController {
     
     private var filtCollectionView: UICollectionView! // the filter collection view
-    private let cellPadding: CGFloat = 8
-      private let pCellPadding:CGFloat = 8
-      private let sectionPadding: CGFloat = 4
+    
+      private let pCellPadding:CGFloat = 5
+      
     private let peopleCellReuseIdentifier = "peopleCellReuseIdentifier"
     
-    private var movies: [Result] = [Result]()
+    private var movies: [SuperHeroResult] = [SuperHeroResult]()
 
 
     override func viewDidLoad() {
@@ -43,7 +43,8 @@ class SuperHeroesViewController: UIViewController {
         view.addSubview(filtCollectionView)
 
         
-        filtCollectionView.backgroundColor = .red
+//        filtCollectionView.backgroundColor = .red
+        
         
         
         filtCollectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor)
@@ -52,10 +53,11 @@ class SuperHeroesViewController: UIViewController {
         filtCollectionView.delegate = self
         
         
-        MovieController.shared.fetchMovies { result in
-            MovieController.shared.fetchMovies { result in
+    
+            MovieController.shared.fetchSuperHeroMovies { result in
                 switch result {
                 case .success(let moviesss):
+                    
                     self.updateUI(with: moviesss)
                 case .failure(let error):
                     print("there was an error")
@@ -63,11 +65,12 @@ class SuperHeroesViewController: UIViewController {
                     
                 }
             }
-        }
+        
+        
         
     }
     
-    private func updateUI(with movieItems: [Result]) {
+    private func updateUI(with movieItems: [SuperHeroResult]) {
         DispatchQueue.main.async {
             self.movies = movieItems
             self.filtCollectionView.reloadData()
@@ -83,6 +86,24 @@ class SuperHeroesViewController: UIViewController {
         }
     }
     
+   private func configure(_ cell: MovieCollectionViewCell, forItemAt indexPath: IndexPath) {
+        let movie = movies[indexPath.item]
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = movie.posterPath
+        let posterUrl = URL(string: baseUrl + posterPath)!
+        
+        // download image
+        MovieController.shared.fetchImage(url: posterUrl) { image in
+            DispatchQueue.main.async {
+
+                cell.setImage(image: image!)
+            }
+        }
+      
+        // setting the cell with the properties
+        
+        
+    }
     
 
 }
@@ -94,6 +115,7 @@ extension SuperHeroesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as! MovieCollectionViewCell
+        configure(cell, forItemAt: indexPath)
         
         return cell
 
