@@ -145,9 +145,7 @@ extension MovieViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selecting row at index path")
-        let movie = movies[indexPath.row]
-//        navigationController?.showDetailViewController(MovideDetailViewController(result: movie), sender: true)
-        
+        let movie = movies[indexPath.row]        
     
         let vc = MovideDetailViewController(result: movie)
         let  n = UINavigationController(rootViewController: vc)

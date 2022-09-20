@@ -128,5 +128,10 @@ extension SuperHeroesViewController: UICollectionViewDelegateFlowLayout {
         let size = (collectionView.frame.width - (pCellPadding) ) / 2
         return .init(width: size, height: size + (size * 0.275))
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = movies[indexPath.item]
+        
+    }
 }
 
