@@ -17,6 +17,9 @@ class MovieController {
 
     private let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
     
+    
+    private let superHeroURl = URL(string: "https://api.themoviedb.org/3/movie/634649/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+    
     /// Gets the movies from the url
     func fetchMovies(completion: @escaping (Swift.Result<[Result], Error>) -> Void)
     {
@@ -38,6 +41,37 @@ class MovieController {
         task.resume()
         
     }
+    
+    func fetchSuperHeroMovies(completion: @escaping (Swift.Result<[SuperHeroResult], Error>) -> Void)
+    {
+       let uu = URL(string: "https://api.themoviedb.org/3/movie/634649/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+        
+        let task = URLSession.shared.dataTask(with: uu) { data, response, error in
+           
+            
+            if let data = data {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let moviesResponse = try jsonDecoder.decode(SuperHeroResponse.self, from: data)
+                    
+                    completion(.success(moviesResponse.results))
+                }
+                catch {
+                    
+                    completion(.failure(error))
+                    
+                }
+            } else {
+                print("no data")
+            }
+        }
+        task.resume()
+        
+    }
+    
+    
+    
+    
     
     /// dowloads image given a url 
     func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {

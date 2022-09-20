@@ -18,15 +18,17 @@ class MovieViewController: UIViewController {
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
     }()
+    
     private  let searchController = UISearchController(searchResultsController: nil)
     
     private var movies: [Result] = [Result]()
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = .white
-        // Do any additional setup after loading the view.
+        
         setUpViews()
         setUpLayout()
         navigationItem.searchController = searchController
@@ -127,6 +129,8 @@ extension MovieViewController:UITableViewDataSource {
         return cell
     }
     
+    
+    
 }
 
 extension MovieViewController: UITableViewDelegate {
@@ -134,9 +138,32 @@ extension MovieViewController: UITableViewDelegate {
         return UITableView.automaticDimension
     }
 
+
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selecting row at index path")
+        let movie = movies[indexPath.row]        
+    
+        let vc = MovideDetailViewController(result: movie)
+        let  n = UINavigationController(rootViewController: vc)
+       
+        
+        navigationController?.present(n, animated: true)
+                                            
+    }
+    
+    func getTopMostViewController() -> UIViewController? {
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+
+        return topMostViewController
+    }
+    
 }
 

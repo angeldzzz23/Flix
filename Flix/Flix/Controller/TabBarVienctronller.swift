@@ -18,16 +18,16 @@ class TabBarVienctronller: UITabBarController {
         
         
         
-        let vc2 = UINavigationController(rootViewController: UIViewController())
+        let vc2 = UINavigationController(rootViewController: SuperHeroesViewController())
         vc2.title = "aa"
-        vc2.view.backgroundColor = .yellow
+//        vc2.view.backgroundColor = .yellow
         
         let vc3 = UINavigationController(rootViewController: UIViewController())
         vc3.title = "settings"
         
         let vcs = [vc1, vc2,vc3]
         
-       
+//        self.tabBar.isTranslucent = false
         
         setViewControllers(vcs, animated: true)
         
